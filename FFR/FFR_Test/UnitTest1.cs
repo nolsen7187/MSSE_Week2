@@ -6,9 +6,15 @@ using FFR;
 
 namespace FFR_Test
 {
+
     [TestClass]
     public class UnitTest1
     {
+        static void Main(string[] args)
+        {
+        }
+
+
         [TestMethod]
         public void AddCustomerandSaleHeader()
         {
@@ -41,7 +47,7 @@ namespace FFR_Test
             ffrDb.SaveChanges();
         }
         [TestMethod]
-        public void TestMethod1()
+        public void ReadDB()
         {
             FFREntities ffrDb = new FFREntities();
 

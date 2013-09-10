@@ -9,4 +9,20 @@ namespace FFR
     public class Class1
     {
     }
+    namespace Domain
+    {
+
+    }
+    namespace Business
+    {
+
+    }
+    namespace Presentation
+    {
+
+    }
+    namespace Service
+    {
+
+    }
 }

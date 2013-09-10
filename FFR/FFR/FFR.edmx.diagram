@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="FFRModel.Customer" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="FFRModel.SalesHeader" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="FFRModel.FK_SalesHeader_Customer" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FFRModel.Employee" Width="1.5" PointX="8.2684146819023479" PointY="23.54244210922273" />
+        <EntityTypeShape EntityType="FFRModel.Item" Width="1.5" PointX="6.6104171977426933" PointY="2.3455028991892481" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

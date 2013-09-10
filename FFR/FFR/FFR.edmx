@@ -4,9 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FFRModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FFRModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="FFRModelStoreContainer">
           <EntitySet Name="Customer" EntityType="FFRModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee" EntityType="FFRModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Item" EntityType="FFRModel.Store.Item" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SalesHeader" EntityType="FFRModel.Store.SalesHeader" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_SalesHeader_Customer" Association="FFRModel.Store.FK_SalesHeader_Customer">
             <End Role="Customer" EntitySet="Customer" />
@@ -27,6 +29,26 @@
           <Property Name="Suite" Type="varchar" MaxLength="20" />
           <Property Name="Phone" Type="varchar" MaxLength="20" />
           <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="EmployeeFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeLastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeePhone" Type="varchar" MaxLength="20" />
+          <Property Name="Employeetype" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" />
+          <Property Name="QuantityAvailable" Type="int" />
+          <Property Name="ItemCost" Type="decimal" />
+          <Property Name="Price" Type="decimal" />
         </EntityType>
         <EntityType Name="SalesHeader">
           <Key>
@@ -51,8 +73,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FFRModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -63,6 +84,8 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="SalesHeader" EntitySet="SalesHeaders" />
           </AssociationSet>
+          <EntitySet Name="Employees" EntityType="FFRModel.Employee" />
+          <EntitySet Name="Items" EntityType="FFRModel.Item" />
         </EntityContainer>
         <EntityType Name="Customer">
           <Key>
@@ -104,6 +127,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+          <Property Type="String" Name="EmployeeFirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmployeeLastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmployeePhone" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Employeetype" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Type="Int32" Name="ItemId" Nullable="false" />
+          <Property Type="String" Name="ItemName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="QuantityAvailable" />
+          <Property Type="Decimal" Name="ItemCost" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="Price" Precision="18" Scale="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -135,6 +178,28 @@
                 <ScalarProperty Name="OrderTaxAmount" ColumnName="OrderTaxAmount" />
                 <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
                 <ScalarProperty Name="SalesStatus" ColumnName="SalesStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="FFRModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Employeetype" ColumnName="Employeetype" />
+                <ScalarProperty Name="EmployeePhone" ColumnName="EmployeePhone" />
+                <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+                <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="FFRModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ItemCost" ColumnName="ItemCost" />
+                <ScalarProperty Name="QuantityAvailable" ColumnName="QuantityAvailable" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

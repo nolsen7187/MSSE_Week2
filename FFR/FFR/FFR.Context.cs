@@ -27,5 +27,7 @@ namespace FFR
     
         public DbSet<Customer> Customers { get; set; }
         public DbSet<SalesHeader> SalesHeaders { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Item> Items { get; set; }
     }
 }
