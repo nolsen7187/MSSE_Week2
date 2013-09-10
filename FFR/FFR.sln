@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFR", "FFR\FFR.csproj", "{1202D22F-DA29-4854-9BE5-D37492F54065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFR_Test", "FFR_Test\FFR_Test.csproj", "{BA9225BD-1FFC-450B-A27D-A48E7F3E6710}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1202D22F-DA29-4854-9BE5-D37492F54065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1202D22F-DA29-4854-9BE5-D37492F54065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1202D22F-DA29-4854-9BE5-D37492F54065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1202D22F-DA29-4854-9BE5-D37492F54065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA9225BD-1FFC-450B-A27D-A48E7F3E6710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9225BD-1FFC-450B-A27D-A48E7F3E6710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9225BD-1FFC-450B-A27D-A48E7F3E6710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9225BD-1FFC-450B-A27D-A48E7F3E6710}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
